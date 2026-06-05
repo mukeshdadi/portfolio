@@ -50,7 +50,6 @@ const galleryPhotos = [
  
 ]
 
-const specialDate = '24 July'
 const finalLines =
   'Happy Birthday in Advance, Saraswathi. No matter how far you go, I will always be cheering for you. Congratulations on your new job. Love you, always. ❤'
 const finalTitle = 'From Little Princess to Independent Queen 👑'
@@ -65,13 +64,10 @@ function App() {
   const [envelopeOpen, setEnvelopeOpen] = useState(false)
   const [activeStep, setActiveStep] = useState(0)
   const [galleryIndex, setGalleryIndex] = useState(0)
-  const [showConstellation, setShowConstellation] = useState(false)
-  const [showStarDate, setShowStarDate] = useState(false)
   const [typewriterIndex, setTypewriterIndex] = useState(0)
   const [lettersShown, setLettersShown] = useState(0)
   const [finalCompleted, setFinalCompleted] = useState(false)
 
-  const starSectionRef = useRef<HTMLDivElement>(null)
   const heroTitleRef = useRef<HTMLHeadingElement>(null)
 
   const typewriterText = useMemo(() => loveMessage.slice(0, typewriterIndex), [typewriterIndex])
@@ -96,25 +92,6 @@ function App() {
     return () => window.clearInterval(interval)
   }, [scene])
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          setShowConstellation(true)
-          window.setTimeout(() => setShowStarDate(true), 2400)
-        }
-      },
-      { threshold: 0.2 },
-    )
-
-    if (starSectionRef.current) {
-      observer.observe(starSectionRef.current)
-    }
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
 
   useEffect(() => {
     if (scene !== 'final') return
