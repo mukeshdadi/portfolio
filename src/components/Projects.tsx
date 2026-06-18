@@ -61,7 +61,7 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="flex flex-col gap-3 mt-auto">
+              {/* <div className="flex flex-col gap-3 mt-auto">
                 <a
                   href="https://bmr.schemaxtech.in/#/"
                   target="_blank"
@@ -90,7 +90,7 @@ export default function Projects() {
                     Use the above credentials after opening the demo application.
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </motion.div>
